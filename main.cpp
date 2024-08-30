@@ -15,12 +15,12 @@ void printVector(std::vector<int>& vector) {
     std::cout<<std::endl;
 }
 
-void bubbleSort(std::vector<int>& vector) {
-    int size= vector.size();
+void bubbleSort(std::vector<int>& vec) {
+    int size= vec.size();
     for(int i=0;i<size-1;i++) {
         for(int j=0;j<size-i-1;j++) {
-            if(*(vector.data()+j)>*(vector.data()+j+1)) {
-                swap(vector.data()+j,vector.data()+j+1);
+            if(*(vec.data()+j)>*(vec.data()+j+1)) {
+                swap(vec.data()+j,vec.data()+j+1);
             }
         }
     }
@@ -51,9 +51,9 @@ void insertionSort(int*arr, int size) {
 }
 
 int main() {
-    std::vector<int> vector= {10,1,2,9,3,5};
-    printVector(vector);
-    bubbleSort(vector);
-    printVector(vector);
+    std::vector<int> vec= {10,1,2,9,3,5};
+    printVector(vec);
+    bubbleSort(vec);
+    printVector(vec);
     return 0;
 }
