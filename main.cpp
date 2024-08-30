@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 void swap(int* a, int* b) {
     int temp=*a;
@@ -6,18 +7,20 @@ void swap(int* a, int* b) {
     *b=temp;
 }
 
-void printArray(int* arr, int size) {
+void printVector(std::vector<int>& vector) {
+    int size= vector.size();
     for(int i=0;i<size;i++) {
-        std::cout<<*(arr+i)<<" ";
+        std::cout<<*(vector.data()+i)<<" ";
     }
     std::cout<<std::endl;
 }
 
-void bubbleSort(int* arr,int size) {
+void bubbleSort(std::vector<int>& vector) {
+    int size= vector.size();
     for(int i=0;i<size-1;i++) {
         for(int j=0;j<size-i-1;j++) {
-            if(*(arr+j)>*(arr+j+1)) {
-                swap(arr+j,arr+j+1);
+            if(*(vector.data()+j)>*(vector.data()+j+1)) {
+                swap(vector.data()+j,vector.data()+j+1);
             }
         }
     }
@@ -48,9 +51,9 @@ void insertionSort(int*arr, int size) {
 }
 
 int main() {
-    int arr[]= {10,1,2,9,3,5};
-    printArray(arr,6);
-    selectionSort(arr,6);
-    printArray(arr,6);
+    std::vector<int> vector= {10,1,2,9,3,5};
+    printVector(vector);
+    bubbleSort(vector);
+    printVector(vector);
     return 0;
 }
